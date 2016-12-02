@@ -40,13 +40,13 @@ public class Car implements Serializable{
 		super();
 		this.id = id;
 	}
-	public Car(String regBr, String brand, Node positionNode12, Node positionNode22, Node lastNode2) {
+	public Car(String regBr, String brand, Node positionNode1, Node positionNode2, Node lastNode) {
 		super();
 		RegBr = regBr;
 		Brand = brand;
-		this.positionNode1 = positionNode12;
-		this.positionNode2 = positionNode22;
-		this.lastNode = lastNode2;
+		this.positionNode1 = positionNode1;
+		this.positionNode2 = positionNode2;
+		this.lastNode = lastNode;
 	}
 	public long getId() {
 		return id;

@@ -92,4 +92,32 @@ public class NodeServices {
 		return "Node succesfully updated!";
 	}
 	
+	public boolean isExsist(String name, String nodeType) {
+		Iterable<Node> allNodes = nodeRepository.findAll();
+//				List<Car> resultCars = new ArrayList<>();
+		for (Node itr : allNodes) {
+			if (itr.getName() == name) {
+				if (itr.getNodeType().getName() == nodeType)
+					return true;
+			}
+		}
+		return false;
+	}
+	
+	public Node findOne(String name, String nodeType) {
+		Node resultNode = new Node();
+		if (isExsist(name, nodeType)) {
+			Iterable<Node> allNodes = nodeRepository.findAll();
+			for (Node itr : allNodes) {
+				if (itr.getName() == name) {
+					if (itr.getNodeType().getName() == nodeType) {
+						resultNode = itr;
+						return itr;
+					}
+				}
+			}
+		}
+		return resultNode;
+	}
+	
 }
