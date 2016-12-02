@@ -50,10 +50,10 @@ public class NodeServices {
 
 	@RequestMapping("/create")
 	@ResponseBody
-	public String create(String name, Integer xCoordinate, Integer yCoordinate, List<Node> connected) {
+	public String create(String name, Integer xCoordinate, Integer yCoordinate, NodeType nodeType, List<Node> connected) {
 		Node node = new Node();
 		try {
-			node = new Node(name, xCoordinate, yCoordinate, connected);
+			node = new Node(name, xCoordinate, yCoordinate, nodeType, connected);
 			nodeRepository.save(node);
 		}
 		catch (Exception ex) {

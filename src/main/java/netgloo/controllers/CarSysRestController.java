@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import netgloo.models.Car;
+import netgloo.models.Node;
 import netgloo.services.NodeServices;
 
 @RestController
@@ -19,13 +20,13 @@ public class CarSysRestController {
 	@Autowired
 	NodeServices nodeServices;
 	
-//	@RequestMapping(method = RequestMethod.GET, value = "/info")
-//	public ResponseEntity<Collection<Car>> recommendedNodes(){
-//		
-//		
-//		
-//		
-//		return new ResponseEntity<>((Collection<Car>) nodeServices.findAll(), HttpStatus.OK);
-//	}
+	@RequestMapping(method = RequestMethod.GET, value = "/info")
+	public ResponseEntity<Collection<Node>> recommendedNodes(){
+		
+		
+		
+		
+		return new ResponseEntity<>((Collection<Node>) nodeServices.findAll(), HttpStatus.OK);
+	}
 
 }

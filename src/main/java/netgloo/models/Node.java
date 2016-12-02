@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "node")
 public class Node implements Serializable{
@@ -31,10 +33,15 @@ public class Node implements Serializable{
 	Integer yCoordinate;
 	@OneToOne
 	NodeType nodeType;
+//	@OneToOne
+//	Integer nodeTypeID;
 //	Node connectedNode1;
 //	Node connectedNode2;
 	@ManyToMany(targetEntity=Node.class)
+	@JsonIgnore
 	List<Node> connected;
+//	@ManyToMany(targetEntity=Node.class)
+//	List<Integer> connected;
 	
 	
 	
@@ -47,11 +54,14 @@ public class Node implements Serializable{
 		this.id = id;
 	}
 	
-	public Node(String name, Integer xCoordinate, Integer yCoordinate, List<Node> connected) {
+	
+	
+	public Node(String name, Integer xCoordinate, Integer yCoordinate, NodeType nodeType, List<Node> connected) {
 		super();
 		Name = name;
 		this.xCoordinate = xCoordinate;
 		this.yCoordinate = yCoordinate;
+		this.nodeType = nodeType;
 		this.connected = connected;
 	}
 	public long getId() {
@@ -84,6 +94,21 @@ public class Node implements Serializable{
 	public void setConnected(List<Node> connected) {
 		this.connected = connected;
 	}
+	public NodeType getNodeType() {
+		return nodeType;
+	}
+	public void setNodeType(NodeType nodeType) {
+		this.nodeType = nodeType;
+	}
+	
+//	public Integer getNodeTypeID() {
+//		return nodeTypeID;
+//	}
+//	public void setNodeTypeID(Integer nodeTypeID) {
+//		this.nodeTypeID = nodeTypeID;
+//	}
+	
+	
 	
 	
 }
